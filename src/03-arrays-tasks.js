@@ -556,7 +556,7 @@ function group(array, keySelector, valueSelector) {
   const keysLength = keysArr.length;
   const values = [...keys.values()].map((nameValue) => array
     .filter((item) => keySelector(item) === nameValue))
-    .map((item) => item.map(valueSelector));
+    .map((cur) => cur.map(valueSelector));
   const resultArr = Array.from(
     { length: keysLength },
     (_, index) => [keysArr[index], values[index]],
