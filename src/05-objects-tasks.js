@@ -20,8 +20,12 @@
  *    console.log(r.height);      // => 20
  *    console.log(r.getArea());   // => 200
  */
-function Rectangle(/* width, height */) {
-  throw new Error('Not implemented');
+function Rectangle(width, height) {
+  return {
+    width,
+    height,
+    getArea: () => width * height,
+  };
 }
 
 
@@ -35,8 +39,8 @@ function Rectangle(/* width, height */) {
  *    [1,2,3]   =>  '[1,2,3]'
  *    { width: 10, height : 20 } => '{"height":10,"width":20}'
  */
-function getJSON(/* obj */) {
-  throw new Error('Not implemented');
+function getJSON(obj) {
+  return JSON.stringify(obj);
 }
 
 
@@ -51,8 +55,10 @@ function getJSON(/* obj */) {
  *    const r = fromJSON(Circle.prototype, '{"radius":10}');
  *
  */
-function fromJSON(/* proto, json */) {
-  throw new Error('Not implemented');
+function fromJSON(proto, json) {
+  const obj = JSON.parse(json);
+  Object.setPrototypeOf(obj, proto);
+  return obj;
 }
 
 
@@ -111,6 +117,52 @@ function fromJSON(/* proto, json */) {
  */
 
 const cssSelectorBuilder = {
+  // elementName: '',
+  // idName: '',
+  // className: '',
+  // attrName: '',
+  // pseudoclassName: '',
+  // pseudoElementName: '',
+  // combined: '',
+  // stringifyString: '',
+
+  // element(value) {
+  //   this.elementName = value;
+  // },
+
+  // id(value) {
+  //   this.idName += `#${value}`;
+  // },
+
+  // class(value) {
+  //   this.className += `.${value}`;
+  // },
+
+  // attr(value) {
+  //   this.attrName = `[${value}]`;
+  // },
+
+  // pseudoClass(value) {
+  //   this.pseudoclassName += `:${value}`;
+  // },
+
+  // pseudoElement(value) {
+  //   this.pseudoElementName += `::${value}`;
+  // },
+
+  // combine(selector1, combinator, selector2) {
+  //   this.combined = `${selector1} ${combinator} ${selector2}`;
+  // },
+  // stringify() {
+  //   if (this.combined) {
+  //     return this.elementName
+  //     + this.attrName
+  //     + this.className
+  //     + this.pseudoclassName
+  //     + this.pseudoElementName;
+  //   }
+  //   return this.combined;
+  // },
   element(/* value */) {
     throw new Error('Not implemented');
   },
